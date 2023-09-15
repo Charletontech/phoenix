@@ -1,0 +1,117 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.background{
+    width: 100%;
+    height: 100vh;
+    background: url(https://res.cloudinary.com/dbfue99qr/image/upload/v1694768902/phoenix/phoenix-uploads/crypto8_fwkaxg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    height: 100%;
+
+}
+
+.overlay-content{
+    width: 30rem;
+    height: 86%;
+    display: block;
+    margin: auto;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    margin-left: 50%;
+    transform: translate(-50%, 12%);
+    padding: 2rem;
+    padding-top: .8rem;
+    border-radius: 10px;
+}
+
+.overlay-content img{
+    width: 10rem;
+    height: 10rem;
+    margin: auto;
+    display: block;
+}
+
+.form{
+    margin:1.6rem auto;
+    display: block;
+    width: 85%;
+    padding-left: 1rem;
+}
+
+ h2{
+    color: #ebb462;
+    text-align: center;
+    font-size: 3.3rem;
+}
+
+.form p{
+    font-size: 1.2rem;
+    color: rgb(155, 155, 155);
+    padding-left: 5px;
+    margin-bottom: .3rem;
+    text-align: center;
+}
+
+.form input{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #e8a541;
+    color: white;
+    padding-bottom: .7rem;
+    outline: none;
+    width: 100%;
+}
+
+.form button{
+    border: none;
+    color: white;
+    background: #e8a541;
+    padding: .7rem;
+    width: 100%;
+    display: block;
+    margin-top: 1.7rem;
+    border-radius: 30px;
+    font-size: 1em;
+    transform: scale(1);
+}
+
+.form button:hover{
+    transform: scale(1.1);
+}
+
+
+
+/* LOGIN PAGE STYLING FOR DESKTOP */
+@media screen and (min-width: 600px){
+    .overlay-content{
+        width: 32rem;
+        height: 60%;
+        transform: translate(-50%, 27%);
+        padding-top: 2rem;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1000px){
+    .overlay-content{
+        width: 25rem;
+        height: 74%;
+        transform: translate(-50%, 22%);
+    }
+}
+/* LOGIN PAGE STYLING FOR DESKTOP ENDS*/
+ 

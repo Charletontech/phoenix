@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix - Fund wallet step 2</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="jquery-3.6.3.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="overlay">
+        <div class="overlay-content">
+            
+            
+            <form action="/fund-wallet-request" method="POST" enctype="multipart/form-data" class="form">
+            <h1>FUND WALLET</h1>
+            <img src="https://res.cloudinary.com/dbfue99qr/image/upload/v1694768234/phoenix/phoenix-uploads/withdraw_pbp0kw.png" alt="">
+
+            <p>How much do you want to fund?</p>
+
+            <label for="fundAmount"></label>
+            <br>
+            <input type="number" name="fundAmount" placeholder="Input amount">
+            <br>
+
+            <label for="proof">Upload screenshot of payment</label>
+            <br>
+            <input type="file" name="proof" class="fileInput">
+            <br>
+
+            <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src='js/app.js'></script>
+    <script src="js/jquery-3.6.3.js"></script>
+    <script src="bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+        })
+   </script>
+</body>
+</html>

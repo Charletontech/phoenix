@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super admin - phoenix</title>
+    <link rel="stylesheet" href="bootstrap-3.4.1-dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="headerCont">
+        <img src="https://res.cloudinary.com/dbfue99qr/image/upload/v1694767455/phoenix/phoenix-uploads/logo1_daltoh.png" alt="logo" class="logo">
+        <b><span class="glyphicon glyphicon-log-out"></span> <br> Log Out</b>
+    </div>
+    <div class="container-fluid">
+        <div class="row" style="padding: .8rem;">
+            <h3>Welcome, Admin</h3>
+            <h2>Requests</h2>
+            
+
+            
+            <% for (let i = 0; i < result.length; i++) { %>
+                <% const each = result[i]; %>
+                <% var imageName = each.proof %>
+                <% var username = each.username %>
+                <% var amount = each.fundAmount %>
+                <div class="box col-sm-12 col-md-4">
+                    <img src="<%= imageName %>" class="proof-img ">
+                    <div class="box-text ">
+                        <div class="box-text-content-1">
+                            <div>
+                                <h4>Investor</h4>
+                                <p class="investor"><%= username %></p>
+                            </div>
+                            <div>
+                                <h4>Amount</h4>
+                                <p>$<span class="amount"><%= amount %></span></p>
+                            </div>
+                        </div>
+                        <div class="box-text-content-2">
+                            <button class=" btn btn-success">Approve <span class="glyphicon glyphicon-ok"></span></button>
+                            <button class=" btn btn-danger">Decline <span class="glyphicon glyphicon-remove"></span></button>
+                        </div>
+                    </div>
+                </div>
+                 
+                <% } %>
+
+
+
+
+
+
+            
+        </div>
+    </div>
+    <script src='js/app.js'></script>
+    <script src="bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <script src="js/jquery-3.6.3.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.btn-success').click(function () {
+                var investor = $('.investor').text()
+                var amount = $('.amount').text()
+                function Approved() {
+                    swal({
+                                title: "Fund Approved!",
+                                text: `${investor} will be credited with $${amount}.`,
+                                icon: "success",
+                                buttons: "Ok",
+                        })
+                    }
+                $.post('/admin-action-approve', {investor, amount},  Approved())
+            })
+
+            $('.btn-danger').click(function () {
+                var investor = $('.investor').text()
+                var amount = $('.amount').text()
+                function Declined() {
+                    swal({
+                                title: "Fund Declined!",
+                                text: `${investor} request will be removed.`,
+                                icon: "success",
+                                buttons: "Ok",
+                        })
+                }
+                $.post('/admin-action-decline', {investor, amount}, Declined())
+            })
+        })
+    </script>
+</body>
+</html>

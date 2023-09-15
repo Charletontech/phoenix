@@ -1,0 +1,106 @@
+<!Doctype html>
+<!-- Developer Caleb Arinze-->
+<html>
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Almendra">
+<style>
+*{
+box-sizing:border-box;
+}
+.slider-box{
+width:90%;
+margin:auto;
+position:relative;
+background-image:url(crypto11.jpg);
+background-size:cover;
+background-position:center;
+background-color:rgba(0,0,0,0.5);
+background-blend-mode:multiply;
+transition: all 0.8s ease-in;
+height:50vw;
+border-radius:0.5em;
+dislay:none;
+}
+.arrow::after{
+content:"\3009";
+position: absolute;
+top:40%;
+right:1%;
+color:white;
+font-size:2em;
+}
+.indicator{
+text-align:center;
+position:relative;
+padding:1em;
+width:100%:
+}
+  .first-indicator, .second-indicator,.third-indicator{
+width:1em;
+height:1em;
+display:inline-block;
+border-radius:50%;
+transition:all  1s ease-in-out;
+background:lightgray;
+}
+.indicatorActive{
+transition:all  1s  ease-in-out;
+background:linear-gradient(to right,blue,blueviolet);
+}
+
+h4{
+font-family:'Almendra',serif;
+text-align:center;
+}
+</style>
+</head>
+<body>
+<h4>Developer Caleb Arinze</h4>
+<div class="slider-box">
+	<span class="arrow"> </span>
+</div>
+<div class="indicator"><div class="first-indicator  indicatorActive"> </div> 
+<div class="second-indicator"> </div> <div class="third-indicator"> </div>
+ </div>
+<script>
+var sliderArrow =  document.getElementsByClassName("slider-box")[0].lastElementChild;
+ var sliderBox =  document.getElementsByClassName("slider-box")[0];
+var firstIndicator = document.getElementsByClassName("first-indicator")[0];
+var secondIndicator = document.getElementsByClassName("second-indicator")[0];
+var thirdIndicator = document.getElementsByClassName("third-indicator")[0];
+
+/* I purposely avoided the for loop which would have been an easier means for rendering, so that you understand how the individual classes are called one after the other,  */
+var backgroundArray = ["url(crypto11.jpg)","url(crypto8.jpg)","url(crypto12.jpg)"];
+var holder = 0;
+ sliderArrow.addEventListener("click",function(){
+if (holder==2){
+holder = 0;
+sliderBox.style.setProperty("background-image", backgroundArray[holder]);
+firstIndicator.classList.add("indicatorActive");
+secondIndicator.classList.remove("indicatorActive");
+thirdIndicator.classList.remove("indicatorActive");
+}
+else{
+holder+=1;
+if(holder==1){
+sliderBox.style.setProperty("background-image", backgroundArray[holder]);
+firstIndicator.classList.remove("indicatorActive");
+secondIndicator.classList.add("indicatorActive");
+thirdIndicator.classList.remove("indicatorActive");;
+}
+else {
+sliderBox.style.setProperty("background-image", backgroundArray[holder]);
+firstIndicator.classList.remove("indicatorActive");
+secondIndicator.classList.remove("indicatorActive");
+thirdIndicator.classList.add("indicatorActive");
+}
+}
+})
+
+/*you will learn a lot as long as you are part of the programming source code group , feel free to ask any question this group has experienced fleet of developers that will teach you programming from scratch  */
+
+// to promote readability i avoided the useof ternary operators and for loops that would have made the process easy
+/* for the sake of learning I really made this as simple as it should be if you have any questions or why it is done this way , why I used classes why anything at all, just say it in the group you will be answered  */
+</script>
+</body>
+</html>

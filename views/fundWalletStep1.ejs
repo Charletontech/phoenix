@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix - Fund wallet step 2</title>
+    <link rel="stylesheet" href="css/fundWalletStep1.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="overlay">
+        <div class="overlay-content">
+            
+            
+            <div class="form">
+            <h1>INSTRUCTIONS</h1>
+            <div class="badge-container">
+                <div class="badge">1</div>
+                <p>Copy your prefered cryptocurrency wallet address below</p>
+                <b>USDT address:</b>
+                <p class="walletAddress" style="margin-top: .2rem;">0x86852d65975d296f9b2244675fd1dbfed1f7de24</p>
+                <b>BTC address:</b>
+                <p class="walletAddress" style="margin-top: .2rem;">1HxR4kv7iHDG8HvzMNN9te9rTKqoL7gmRs</p>
+                <b>ETH address:</b>
+                <p class="walletAddress" style="margin-top: .2rem;">0x86852d65975d296f9b2244675fd1dbfed1f7de24</p>
+                <b>BNB address:</b>
+                <p class="walletAddress" style="margin-top: .2rem;">0x86852d65975d296f9b2244675fd1dbfed1f7de24</p>
+            </div>
+           
+            <div class="badge-container">
+                <div class="badge">2</div>
+                <p>Make a transfer of the cryptocurrency to the wallet. Note: only transfer a cryptocurrency to the matching wallet (e.g do not transfer USDT crypto to a BTC wallet).
+                    The amount you transfer should be equal to the amount you wish to Fund
+                    your wallet with. take a screenshot of the transaction. 
+                </p>
+            </div>
+
+            <div class="badge-container">
+                <div class="badge">3</div>
+                <p>Come back to this page and click the next button below.</p>
+            </div>
+            
+            <button type="submit">Next</button>
+        </div>
+        </div>
+    </div>
+
+    <script src='js/app.js'></script>
+    <script src="js/jquery-3.6.3.js"></script>
+    <script src="bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <script>
+    $(document).ready(function() {
+    // Add a click or touch event listener to elements with class "walletAddress"
+    $('.walletAddress').on('click touchstart', function() {
+        var walletAddress = $(this).text(); // Get the text content of the clicked element
+        
+        // Create a temporary textarea element to hold the text to be copied
+        var textarea = document.createElement('textarea');
+        textarea.value = walletAddress;
+        document.body.appendChild(textarea);
+
+        // Select the text in the textarea and copy it to the clipboard
+        textarea.select();
+        document.execCommand('copy');
+
+        // Remove the temporary textarea
+        document.body.removeChild(textarea);
+
+        // Alert the user that the text has been copied
+        alert('Copied to clipboard: ' + walletAddress);
+    });
+        //Logic to go to next page
+        $("button").click(function () {
+            $.get('/fund-wallet-step2', function(data) {
+            // Open a new browser window and load the received HTML content
+            var newWindow = window.open('', '_blank');
+            newWindow.document.write(data);
+            newWindow.document.close();
+            }).done(function() {
+            // This block will run if the GET request is successful
+            console.log('GET request succeeded');
+            // Add your additional actions here
+            }).fail(function() {
+            // This block will run if there's an error with the GET request
+            console.error('GET request failed');
+            // Add error handling code here
+            });
+        })
+    });
+   </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='css/signup.css'>
+    <style>
+        body{
+            background: rgba(178, 178, 184, 0.4);
+        }
+    </style>
+    <script src="jquery-3.6.3.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.asCustomer').click(function(){
+                $(".signUpCont").css('margin-top', '1rem')
+                $('#vendorSignUp').css('display', 'none')
+                $('#customerSignUp').css('display', 'block')
+             })
+             
+             $('.asVendor').click(function(){
+                $(".signUpCont").css('margin-top', '1rem')
+                $('#customerSignUp').css('display', 'none')
+                $('#vendorSignUp').css('display', 'block')
+            })
+            
+            $('#customerSignUp input').focus(function(){
+                $(this).prev().prev().toggleClass('labelFocus')
+                $(this).css('border', '1px solid rgb(235, 85, 85)')
+                $(this).css('background', 'white')
+            })
+
+            $('#customerSignUp input').blur(function(){
+                $(this).prev().prev().toggleClass('labelFocus')
+                $(this).css('border', 'none')
+                $(this).css('background', '#ddd')
+            })
+
+            $('#vendorSignUp input').focus(function(){
+                $(this).prev().prev().toggleClass('labelFocus')
+                $(this).css('border', '1px solid rgb(235, 85, 85)')
+                $(this).css('background', 'white')
+            })
+
+            $('#vendorSignUp input').blur(function(){
+                $(this).prev().prev().toggleClass('labelFocus')
+                $(this).css('border', 'none')
+                $(this).css('background', '#ddd')
+            })
+
+            $('#vendorSignUp select').focus(function(){
+                $(this).prev().prev().toggleClass('labelFocus')
+                $(this).css('border', '1px solid rgb(235, 85, 85)')
+                $(this).css('background', 'white')
+            })
+
+            $('#vendorSignUp select').blur(function(){
+                $(this).prev().prev().toggleClass('labelFocus')
+                $(this).css('border', 'none')
+                $(this).css('background', '#ddd')
+            })
+        })
+    </script>
+    <title>Sign up - Greezon</title>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="overlay">
+        <div class="overlay-content">
+            <img src="https://res.cloudinary.com/dbfue99qr/image/upload/v1694767455/phoenix/phoenix-uploads/logo1_daltoh.png" alt="">
+            
+            <form action="/signup" method="POST" class="form">
+            <h2>Sign Up</h2>
+
+            <label for="email"></label>
+            <br>
+            <input type="email" name="email" placeholder="Email">
+            <br>
+    
+            <label for="username"></label>
+            <br>
+            <input type="text" name="username" placeholder="Username">
+            <br>
+
+            <label for="password"></label>
+            <br>
+            <input type="password" name="password" placeholder="Password">
+            <br>
+
+            <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src='js/app.js'></script>
+    <script src="js/jquery-3.6.3.js"></script>
+    <script src="bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           $('.form input').focus(function () {
+                $(this).css('transform', 'scale(0.8) translate(5px)')
+                $(this).css('transition', 'all 0.2s')
+                $(this).css('transform-origin', '0 0')
+                $(this).css('border-bottom', '1px solid white')
+           })
+
+           $('.form input').blur(function () {
+                $(this).css('transform', 'scale(1) translate(0)')
+                $(this).css('transition', 'all 0.2s')
+                $(this).css('transform-origin', '0 0')
+                $(this).css('border-bottom', '1px solid #e8a541')
+           })
+
+           $('.menu-logo-container').click(function () {
+               var menuOverlay = $('.menu-overlay')
+                menuOverlay.css('width', '0%')
+                $('.headerCont span').css('display', 'block')
+           })
+        })
+   </script>
+
+    
+</body>
+</html>

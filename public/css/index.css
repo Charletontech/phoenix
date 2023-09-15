@@ -1,0 +1,873 @@
+*{
+  padding: 0;
+  text-decoration: none;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.slider-box{
+    width:100%;
+    margin:auto;
+    position:relative;
+    background-image:url(files/img/crypto12.jpg);
+    background-size:cover;
+    background-position:center;
+    background-color:rgba(0,0,0,0.5);
+    background-blend-mode:multiply;
+    transition:all 0.8s ease-in;
+    height: 95rem;
+    border-bottom-left-radius:0.5em;
+    border-bottom-right-radius:0.5em;
+    /* overflow: hidden; */
+    }
+    .arrow::after{
+    content:"\3009";
+    position: absolute;
+    top:40%;
+    right:1%;
+    color:white;
+    font-size:2em;
+    }
+    .indicator{
+    text-align:center;
+    position:relative;
+    padding:1em;
+    width:100%;
+    }
+      .first-indicator, .second-indicator,.third-indicator{
+    width:1em;
+    height:1em;
+    display:inline-block;
+    border-radius:50%;
+    transition:all  1s ease-in-out;
+    background:lightgray;
+    }
+    .indicatorActive{
+    transition:all  1s  ease-in-out;
+    background:linear-gradient(to right,blue,blueviolet);
+    }
+
+    .landing-text-container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to left, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.4));
+        color: white;
+        padding-left: .3rem;
+    }
+
+    .nav{
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 7rem;
+      padding: 5px;
+      background-image: linear-gradient(to left, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.2));
+    }
+
+    .nav ul li{
+      margin: 2rem;
+      color: #f8e195;
+      transition: ease 0.3s;
+    }
+
+    .nav ul li:hover{
+      color: white;
+      cursor: pointer;
+      border-bottom: 1px solid white;
+      transition: ease-in 0.3s;
+    }
+
+    .nav img{
+      width: 8rem;
+      height: 7rem;
+    }
+
+    .nav button{
+      float: right;
+      font-size: 1.5rem;
+      padding: 0px 6px;
+      background: transparent;
+      color: white;
+    }
+
+    .nav button:hover{
+      background-color: #f8e195;
+    }
+
+    .menu{
+      display: flex;
+      
+    }
+
+    .intro-header{
+      border-left: 2px solid #d7a917;
+      padding-left: .8rem;
+      transform: translateY(-4rem);
+      transition: ease 1s;
+      opacity: 0;
+    }
+
+    .intro-header h2{
+      font-size: 3.5rem;
+    }
+
+    .intro-header h3{
+      font-size: 2.5rem;
+    }
+
+    .intro-header span{
+      color: #d7a917;
+    }
+
+    .intro-body{
+      margin-left: 1,5rem; 
+      transform: translateX(-4rem);
+      opacity: 0;
+      transition: ease 1s;
+    }
+
+    .intro-buttons{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 70%;
+      transform: translateY(4rem);
+      opacity: 0;
+      transition: ease 1s;
+    }
+
+    .intro-buttons button{
+      padding: 5px 10px;
+      background: #d7a917;
+      color: black;
+      font-weight: bold;
+      border: none;
+      margin-top: 1rem; 
+      transition:  ease-in 1s;
+    }
+
+    .intro-buttons button:nth-child(2){
+      background: transparent;
+      color: #d7a917;
+      border: 1px solid #d7a917;
+    }
+
+    .intro-buttons button:nth-child(2):hover{
+      background-image: linear-gradient(to left, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1));
+      
+    }
+
+    .bitcoin-logo {
+      height: 100%;
+      padding-top: 5rem;
+    }
+
+    .bitcoin-logo img{
+      width: 100%;
+      height: 80%;
+      margin: auto;
+      display: block;
+      transform: translateX(4rem);
+      opacity: 0;
+      transition: ease 1s;
+    }
+
+    .more-section{
+      background: #d7a917;
+      padding:3rem 1rem ;
+      height: auto;
+      line-height: 3rem;
+      color: black;
+    }
+
+    .more-image-container .row img{
+      height: 12rem;
+    }
+
+    .more-image-container{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      margin-top: 3rem;
+    }
+
+
+    /* how it works section */
+
+    #how-it-works{
+      margin-top: 6rem;
+      text-align: center;
+    }
+
+    .how-it-works-h4-header{
+      margin-bottom: -1.5rem;
+    }
+
+    .line{
+      width: 6rem;
+      height: 3px;
+      background-color: #d7a917;
+      display: block;
+      margin:1rem auto 3rem;
+    }
+
+    .how-it-works-box-container{
+      background: rgba(99, 99, 99, 0.06);
+
+    }
+
+    .how-it-works-box {
+      height: auto;
+      margin: 3rem;
+      /* margin-bottom: 3rem; */
+      padding: 1rem;
+      background: white;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    .how-it-works-box  img{
+      width: 12rem;
+      height: 12rem;
+    }
+
+    #testimonials{
+      text-align: center;
+      margin-top: 6rem;
+      height: auto;
+    }
+
+    .testimonial-box{
+      height: auto;
+      padding: 3rem;
+      display: flex;
+      justify-content: center;
+      background-color: rgb(22, 20, 20);
+    }
+    
+
+    .side-a{
+      padding: 2rem;
+      width: 50%;      
+      position: relative;
+      border: 1px solid #d7a917;
+      z-index: 2;
+    }
+
+    .side-a-container{
+      width: 100%;
+      color: #d7a917;
+    }
+
+    .side-a-container h5{
+      color: white;
+    }
+
+    .semi-circle-up{
+      width: 70%;
+      margin:auto;
+      background-color: #d7a917;
+      height: 1.4rem;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      position: absolute;
+      top: -1.4rem;
+      left: 15%;
+    }
+
+    .semi-circle-down{
+      width: 70%;
+      margin:auto;
+      background-color: #d7a917;
+      height: 1.4rem;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      position: absolute;
+      bottom: -1.4rem;
+      left: 15%;
+    }
+
+    .side-a-container img{
+      height: 50%;
+      width: 90%;
+      display: block;
+      margin:1rem auto;
+    }
+
+
+    .side-b{
+      width: 50%;
+      padding:0px 10px;
+    }
+
+    .side-b h3{
+      color: #d7a917;
+      text-align: left;
+      margin-top: -0.5rem;
+    }
+
+    .side-b p{
+      text-align: left;
+      color: white;
+      font-size: 0.85em;
+      font-style: italic;
+    }
+
+    #statement-section{
+      background-color: rgb(22, 20, 20);
+      height: 46rem;
+      margin-top: 0rem;
+      padding: 1rem;
+      padding-top: 15rem;
+      overflow: hidden;
+    }      
+
+    .statement-side-a {
+      float: left;
+      width: 15%;
+      height: 35rem; 
+    }
+
+    .statement-side-a  p{
+      text-align: center;
+      color: rgb(94, 92, 92);
+      font-size: 3rem;
+      font-weight: bold;
+      padding: 5px;
+      transform-origin: 0 0;
+      transform:translateY(430%)  rotate(-90deg);
+    }
+
+    
+    .statement-side-b {
+      height: 100%;
+      overflow-y: auto; 
+      width: 85%; 
+      float: left; 
+      clear: right;
+      max-height: 27rem; 
+    }
+    
+    .statement-side-b-content{
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      color: rgb(119, 111, 111);
+    }
+
+    .statement-side-b-content span:nth-child(1){
+      width: 6rem;
+      height: 4rem;
+      margin-right: 1.5rem;
+      color: rgb(70, 168, 70);
+      padding-top: .7rem;
+    }
+
+    .statement-side-b-content span:nth-child(4){
+      width: 4rem;
+      height: 4rem;
+      margin-right: 1.5rem;
+      color: green;
+      padding-top: .7rem;
+    }
+
+    .statement-side-b-content p{
+      width: 75%;
+    }
+
+    .statement-side-b-content span{
+      font-size: 2.8rem;
+    }
+
+    #plan{
+      margin-top: 8rem;
+    }
+
+    #plan h2{
+      text-align: center;
+      margin-top: -0.5rem;
+    }
+
+    .plans-container{
+      width: 85%;
+    }
+
+    .plans-box{
+      margin-top: 3rem;
+      height: 50rem;
+      text-align: center;
+     
+    }
+
+    .plans-box-header{
+      height: 32%; 
+      border-radius: 5px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      padding-top: 6rem;
+      background-image: linear-gradient(to top, rgb(78, 76, 76) 30%, rgb(136, 134, 134));
+    }
+
+    .plans-box-header h4{
+      color: white;
+      font-weight: bold;
+      font-size: 2rem; margin-bottom: -.3rem;
+    }
+
+    
+
+    .plans-box-header i{
+      color: rgb(180, 175, 175);
+      font-size: 1.1rem;
+    }
+    
+    .plans-box-middle{
+      background: rgb(241, 241, 241);
+      height: 15%;
+      padding-top: 3rem;
+      border-left: 1px solid rgb(228, 227, 227);
+      border-right: 1px solid rgb(228, 227, 227);
+      border-bottom: 1px solid rgb(219, 219, 219);
+    }
+
+    
+    .plans-box-middle p{
+      font-size: 2.3rem;
+    }
+
+    .plans-box-middle sup{
+      font-size: 1.4rem;
+    }
+
+    .plans-box-middle sub{
+      font-size: 1.2rem;
+    }
+    
+    .plans-box-footer{
+      height: 43%;
+      background: rgb(241, 241, 241);
+      /* background-color:  */
+      text-align: left;
+      padding: 2rem 8rem;
+      border-bottom: 1px solid rgb(219, 219, 219);
+      border-left: 1px solid rgb(219, 219, 219);
+      border-right: 1px solid rgb(219, 219, 219);
+    }
+
+    .plans-box-footer ul li{
+      margin: 1rem;
+      list-style: disc;
+      text-align: left;
+    }
+
+    .plans-box-footer button{
+      color: white;
+      background-image: linear-gradient(to top, rgb(78, 76, 76) 30%, rgb(136, 134, 134));
+      border: none;
+      border-radius: 30px;
+      padding: 1rem 2rem;
+      margin: 2rem auto;
+      display: block;
+      /* transition: all 0.1s ease-out; */
+    }
+
+    .plans-box-footer button:hover{
+      transform: scale(1.05);
+      /* transition: all 0.5s ease-in; */
+    }
+
+
+    .plans-box:nth-child(even) .plans-box-header{
+      background-image: linear-gradient(to top, #d7a917 30%, #dfc87c);
+    }
+
+    .plans-box:nth-child(even) .plans-box-header i{
+      color: white;
+    }
+
+    .plans-box:nth-child(even) .plans-box-middle{
+      background: white;
+    }
+
+    .plans-box:nth-child(even) .plans-box-footer{
+      background: white;
+    }
+
+    .plans-box:nth-child(even) .plans-box-footer button{
+      background-image: linear-gradient(to top, #d7a917 30%, #dfc87c);
+    }
+
+
+
+    #statistics{
+      margin-top: 6rem;
+      height: 60rem;
+      overflow: auto;
+      background-image: url(files/img/bg2.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* filter: blur(2px); */
+    }
+
+    #statistics h2{
+      text-align: center;
+      color: white;
+      padding-top: 4rem;
+    }
+
+    .statistics-container{
+      
+      padding:2rem ;
+    }
+    
+
+    .statistics-box{
+      text-align: center;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      border-radius: 5px;
+    }
+
+    .statistics-box img{
+      width: 5rem;
+      height: 5rem;
+      margin: 2rem auto;
+      display: block;
+    }
+
+    .statistics-box h1{
+      font-weight: bold;
+      color: white;
+    }
+
+    
+
+    .statistics-box p{
+      text-align: center;
+      color: #e6b517;
+      font-weight: bold;
+    }
+
+    .statistics-footer{
+      /* background-color: rgba(0,0,0,0.7); */
+      padding-top: 6rem;
+      color: rgb(199, 196, 196);
+      padding-bottom: 3rem;
+    }
+
+    .statistics-footer-side-a img{
+      width: 14rem;
+      height: 11rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .socials{
+      width: 70%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0rem;
+     margin-left: -2rem;
+    }
+
+    .socials img{
+      width: 15%;
+      height: 3rem;
+      margin: 8px;
+    }
+
+    .statistics-footer-side-b h4{
+      font-size: 2.7rem;
+      margin-bottom: -.6rem;
+      color: white;
+    }
+
+    .statistics-footer-side-b-img-container{
+      width: 100%; 
+      display: block;
+    }
+
+    .statistics-footer-side-b img{
+      height: 12rem;
+      width: 100%;
+      background: transparent;
+    }
+
+
+
+
+    footer{
+      margin-top: 0;
+      padding: 2rem;
+      padding-top: 6rem;
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 30%, black 70%);
+      color: rgb(207, 206, 206);
+    }
+
+    .address-details-container{
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .address-details-container img{
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .address-details-container div{
+      width: 80%;
+      padding-left: 1rem;
+    }
+
+    footer div div div{
+      margin-bottom: 2rem;
+    }
+
+    footer div div div div{
+      margin-bottom: -.1rem;
+    }
+
+    footer div div div h4{
+      color: #d7a917;
+    }
+
+    footer ul{
+      margin-left: 1rem;
+    }
+
+    footer ul li{
+      margin: 1rem;
+    }
+
+   
+    
+    @media screen and (max-width: 600px){
+      .menu-overlay{
+        width: 0%;
+        height: 100vh; 
+        display: block;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin-left: -.5rem;
+        background-color: rgba(0,0,0,0.5);
+        transition: all 0.3s;
+        z-index: 3;
+      }
+
+      .close-btn{
+        color: #f8e195;
+        text-align: right;
+        margin: 3rem;
+        border: 1px solid #f8e195;
+        padding: 5px;
+        width: 3rem;
+        height: 3rem;
+      }
+
+      .close-btn:hover{
+        color: black;
+      }
+
+     
+      .menu{
+        height: 100%;
+        overflow: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70%;
+        padding: 2rem;
+        background-image: linear-gradient(-320deg, rgba(0,0,0,1) 80%, rgba(240, 224, 136, 0.2));
+      }
+
+      .menu-logo-container{
+        margin-left: 1rem;
+      }
+
+      .menu-logo-container img{
+        width: 6rem;
+        height: 6rem; 
+        /* margin-top: 3rem; */
+        margin-bottom: 2rem;
+        border: 1px solid #f8e195;
+        border-radius: 100%;
+        padding: 5px;
+        background: black;
+      }
+
+      .menu-logo-container p{
+        color: rgb(163, 159, 159);
+        font-size: 1.4rem;
+      }
+
+      .menu ul{
+        margin-top: 8.5rem;
+        display: block;
+        width: 100%;
+      }
+
+      .menu ul li{
+        margin: 2.3rem;
+        margin-left: 2rem;
+        font-weight: bold;
+        padding-bottom: .7rem;
+        border-bottom: 1px solid #f8e195;
+      }
+
+      .nav ul li{
+        transform: translateX(0);
+       }
+
+      .nav ul li:hover{
+       transform: translateX(1rem) scale(1.1);
+      }
+
+      .nav img{
+        margin-right: -9rem;
+      }
+
+      .nav button{
+        margin-left: 35rem;
+      }
+
+      .plans-box{
+        height: 68rem;
+      }
+      
+      .statistics-footer-side-b{
+        margin-top: 10rem;
+      }
+
+      .plans-box-header{
+        padding-top: 8rem;
+      }
+  
+    }
+
+    @media screen and (min-width: 600px){
+      .slider-box{
+        height: 57rem;
+      }
+
+      .menu-logo-container img{
+        display: none;
+      }
+
+      .menu-overlay ul{
+        display: flex;
+      }
+
+     
+
+      .nav img{
+        margin-left: 2rem;
+        margin-right: 30rem;
+      }
+
+      .nav button{
+        display: none;      
+      }
+
+      .intro-body{
+        font-size: 1.7rem;
+        margin: 3rem 0;
+
+      }
+
+      .intro-buttons{
+        width: 55%;
+      }
+
+      .bitcoin-logo img{
+        width: 80%;
+        height: 70%;
+        margin: auto;
+        display: block;
+      }
+
+      #statement-section{
+        padding-left: 3rem;
+        height: 55rem;
+      }    
+      
+      
+      .statement-side-a {
+        width: 10%;
+      }
+
+      .statement-side-b{
+        width: 90%;
+      }
+
+      .statement-side-a  p{
+        font-size: 5.5rem;
+      }
+
+      .statement-side-b {
+        max-height: 50rem;
+      }
+
+      #statement-section{
+        height: 65rem;
+      }
+
+      #plan{
+        margin-top: 15rem;
+      }
+
+      .plans-container{
+        width: 90%;
+      }
+  
+      .statistics-footer-side-b-img-container{
+        width: 100%; 
+        display: flex;
+      }
+  
+      .statistics-footer-side-b img{
+        height: 80%;
+        width: 70%;
+        margin-bottom: -10rem;
+      }
+
+      footer ul{
+        margin-left: 0rem;
+      }
+
+      #statistics{
+        height: 80rem;
+      }
+  
+    }
+
+    @media only screen and (min-width: 600px) and (max-width: 800px){
+      .slider-box{
+        height: 86rem;
+      }
+
+      .bitcoin-logo img{
+        padding-top: 4rem;
+        width: 50%;
+        height: 70%;
+        margin: auto;
+        display: block;
+      }
+
+      .intro-buttons{
+        width: 100%;
+      }
+
+      .plans-container{
+        width: 70%;
+      }
+    }

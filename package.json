@@ -1,0 +1,28 @@
+{
+  "name": "node_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nodeProject.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cloudinary": "^1.40.0",
+    "cookie-parser": "^1.4.6",
+    "crypto": "^1.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "formidable": "^2.1.1",
+    "loadash": "^1.0.0",
+    "mongoose": "^6.8.2",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.9.0",
+    "nodemon": "^2.0.20",
+    "session": "^0.1.0"
+  }
+}

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <title>Dashboard - Phoenix</title>
+</head>
+<body>
+    <div class="generalContainer">
+        <div class="headerCont">
+            <img src="https://res.cloudinary.com/dbfue99qr/image/upload/v1694767455/phoenix/phoenix-uploads/logo1_daltoh.png" alt="logo" class="logo">
+            <ul >
+                <li>Home</li>
+                <li>Plans</li>
+                <li class="fundWallet">Fund Wallet</li>
+                <li>Withdraw</li>
+                <li>Log Out</li>
+             </ul> 
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </div>
+        
+        <div class="menu-overlay">
+            <div class="menu">
+                <div class="menu-logo-container">
+                    <img class="hidden-md" src="https://res.cloudinary.com/dbfue99qr/image/upload/v1694767455/phoenix/phoenix-uploads/logo1_daltoh.png" >
+                    <span class="glyphicon glyphicon-remove"></span>
+                </div>
+                
+                <ul >
+                    <li><span class="glyphicon glyphicon-home"></span>  Home</li>
+                    <li><span class="glyphicon glyphicon-list"></span>  Plans</li>
+                    <li class="fundWallet"><span class="glyphicon glyphicon-btc"></span>  Fund wallet</li>
+                    <li><span class="glyphicon glyphicon-download-alt"></span>  Withdraw</li>
+                    <li><span class="glyphicon glyphicon-log-out"></span>  Log Out</li>
+            </div>
+            
+        </div>
+
+
+        <div class="intro">
+            <h1>Hello, <span> <%= username %></span></h1>
+            <p>Welcome back!</p>
+        </div>
+        <section class="info-area-cont container-fluid">
+            <h4>Dashboard</h4>
+            <div class="row">
+                <div class="box-containerA col-sm-12 col-md-6">
+                    <div class="box-container">
+                        <div class="box col-6">
+                            <span class="glyphicon glyphicon-btc"></span>
+                            <div class="box-content">
+                                <p>Available balance</p>
+                                <h4>$<span class="wallet"><%= wallet %></span></h4>
+                            </div>
+                        </div>
+                        <div class="box col-6">
+                            <span class="glyphicon glyphicon-list"></span>
+    
+                            <div class="box-content">
+                                <p>Current Plan</p>
+                                <h4 style="font-size: 1.5rem;"><%= plan %></h4>
+                            </div>
+                        </div>
+                        <div class="box col-6">
+                            <span class="glyphicon glyphicon-check"></span>
+                            <div class="box-content">
+                                <p>Amount Invested:</p>
+                                <h4>$<%= amount %></h4>
+                            </div>
+                        </div>
+                        <div class="box col-6">
+                            <span class="glyphicon glyphicon-dashboard"></span>
+                            <div class="box-content">
+                                <p>ROI</p>
+                                <h4>$<%= roi %></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-containerB col-sm-12 col-md-6">
+                    <div class="box-containerB-content">
+                        <p>Investment Progress</p>
+                        <div  class="boxB-date-container">
+                            <div>
+                                <p>Date invested</p>
+                                <h4 class="dateInvested"><%= dateInvested %></h4>
+                            </div>
+                            <div>
+                                <p>Cashout</p>
+                                <h4 class="dateDue"><%= dateDue %></h4>
+                            </div>
+                        </div>
+                        
+                        <p class="progressBarData"><%= progressBarData %></p>
+                        <div class="progress">
+                            <div class="the-bar progress-bar progress-bar-success" role="progressbar" ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plan">
+            <h2>OUR PLANS</h2>
+         <div class="line"></div>
+         <div class="plans-container container-fluid" >
+             <div class="row">
+                 <div class="plans-box col-sm-12 col-md-4">
+                     <div class="plans-box-header">
+                         <h4>STATER PLAN</h4>
+                         <i>...lets taste the waters</i>
+                     </div>
+                     <div class="plans-box-middle">
+                         <p><sup>$</sup><span class="min">100</span><sub>(Min)</sub> - <sup>$</sup><span class="max">499</span><sub>(Max)</sub></p>
+                     </div>
+                     <div class="plans-box-footer">
+                         <ul><li>Withdrawal with Crypto</li>
+                             <li>Bonus: 0% of investment</li>
+                             <li>Returns (ROI): <span class="roi">10</span>%</li>
+                             <li>Duration: <span class="duration">7</span> days</li>
+                             
+                         </ul>
+                         <button>Select</button>
+                     </div>
+                 </div>
+                 <div class="plans-box col-sm-12 col-md-4">
+                     <div class="plans-box-header">
+                         <h4>STANDARD PLAN</h4>
+                         <i>...walah! it works!</i>
+                     </div>
+                     <div class="plans-box-middle">
+                         <p><sup>$</sup><span class="min">500</span><sub>(Min)</sub> - <sup>$</sup><span class="max">999</span><sub>(Max)</sub></p>
+                     </div>
+                     <div class="plans-box-footer">
+                         <ul> <li>Withdrawal with Crypto</li>
+                             <li>Bonus: 3% of investment</li>
+                             <li>Returns (ROI): <span class="roi">20</span>%</li>
+                             <li>Duration: <span class="duration">14</span> days</li>
+                            
+                         </ul>
+                         <button>Select</button>
+                     </div>
+                 </div>
+                 <div class="plans-box col-sm-12 col-md-4">
+                     <div class="plans-box-header">
+                         <h4>INVESTOR PLAN</h4>
+                         <i>...lets go all in!</i>
+                     </div>
+                     <div class="plans-box-middle">
+                         <p><sup>$</sup><span class="min">1000</span><sub>(Min)</sub> - <sup>$</sup><span class="max">4499</span><sub>(Max)</sub></p>
+                     </div>
+                     <div class="plans-box-footer">
+                         <ul><li>Withdrawal with Crypto</li>
+                             <li>Bonus: 5% of investment</li>
+                             <li>Returns (ROI): <span class="roi">35</span>%</li>
+                             <li>Duration: <span class="duration">21</span> days</li>
+                             
+                         </ul>
+                         <button>Select</button>
+                     </div>
+                 </div>
+                 <div class="plans-box col-sm-12 col-md-4">
+                     <div class="plans-box-header">
+                         <h4>DIAMOND PLAN</h4>
+                         <i>...on track to finiancial freedom</i>
+                     </div>
+                     <div class="plans-box-middle">
+                         <p><sup>$</sup><span class="min" >5,000</span><sub>(Min)</sub> - <sup>$</sup><span class="max">19,999</span><sub>(Max)</sub></p>
+                     </div>
+                     <div class="plans-box-footer">
+                         <ul><li>Withdrawal with Crypto</li>
+                             <li>Bonus: 0% of investment</li>
+                             <li>Returns (ROI): <span class="roi">50</span>%</li>
+                             <li>Duration: <span class="duration">30</span> days</li>
+                             
+                         </ul>
+                         <button>Select</button>
+                     </div>
+                 </div>
+                 <div class="plans-box col-sm-12 col-md-4">
+                     <div class="plans-box-header">
+                         <h4>PLATINUM PLAN</h4>
+                         <i>...let...at last!</i>
+                     </div>
+                     <div class="plans-box-middle">
+                         <p><sup>$</sup><span class="min">20,000</span><sub>(Min)</sub> - <sup>$</sup><span class="max">49,999</span><sub>(Max)</sub></p>
+                     </div>
+                     <div class="plans-box-footer">
+                         <ul><li>Withdrawal with Crypto</li>
+                             <li>Bonus: 0% of investment</li>
+                             <li>Returns (ROI): <span class="roi">70</span>%</li>
+                             <li>Duration: <span class="duration">30</span> days</li>
+                             
+                         </ul>
+                         <button>Select</button>
+                     </div>
+                 </div>
+                 <div class="plans-box col-sm-12 col-md-4">
+                     <div class="plans-box-header">
+                         <h4>VETERAN PLAN</h4>
+                         <i>...veteran investor!</i>
+                     </div>
+                     <div class="plans-box-middle">
+                         <p><sup>$</sup><span class="min">50,000</span><sub>(Min)</sub> - <span class="max">limitless</span><sub>(Max)</sub></p>
+                     </div>
+                     <div class="plans-box-footer">
+                         <ul><li>Withdrawal with Crypto</li>
+                             <li>Bonus: 0% of investment</li>
+                             <li>Returns (ROI): <span class="roi">100</span>%</li>
+                             <li>Duration: <span class="duration">30</span> days</li>
+                             
+                         </ul>
+                         <button>Select</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+        </section>
+        <form action="" method="" class="form">
+            <input type="text" class="planInput" name="plan">
+            <input type="text" class="roiInput" name="roi">
+            <input type="text" class="rangeMinInput" name="rangeMin">
+            <input type="text" class="rangeMaxInput" name="rangeMax">
+            <input type="text" class="durationInput" name="duration">
+            <span >&times;</span>
+            <h1>Invest</h1>
+    
+                <p>How much do you want <br> to invest?</p>
+    
+                <label for="fundAmount"></label>
+                <br>
+                <input class="investmentAmount" type="number" name="investmentAmount" placeholder="">
+                <br>
+    
+                <button type="submit">invest</button>
+        </form>
+    </div>
+
+    
+    
+
+    <script src='js/app.js'></script>
+    <script src="js/jquery-3.6.3.js"></script>
+    <script src="bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //loading the progress bar
+            $('.progressBarData').css("display", "none")
+            var progressBarData = $('.progressBarData').text()
+            $('.the-bar').css('width', `${progressBarData}%`)
+
+
+           $('.headerCont span').click(function () {
+               console.log('hi')
+               var menuOverlay = $('.menu-overlay')
+                menuOverlay.css('width', '70%')
+                $('.headerCont span').css('display', 'none')
+           })
+
+           $('.menu-logo-container').click(function () {
+               var menuOverlay = $('.menu-overlay')
+                menuOverlay.css('width', '0%')
+                $('.headerCont span').css('display', 'block')
+           })
+
+           //links for menu
+           $('ul li:nth-child(1)').click(function () {
+               console.log('ok');
+               
+              $.get('/') 
+           })
+           
+
+           //select investment links
+           $('.plans-box-footer button').click(function () {
+            $('form').css({"opacity": "1", "z-index": "10"}) 
+            var plan = $(this).parent().parent().find('h4').text() 
+            var rangeMin = $(this).parent().parent().find('.min').text() 
+            var rangeMax = $(this).parent().parent().find('.max').text() 
+            var roi = $(this).parent().parent().find('.roi').text()
+            var duration = $(this).parent().parent().find('.duration').text() 
+            var username = $('.intro h1 span').text()
+
+            $('.planInput').val(plan)
+            $('.rangeMinInput').val(rangeMin)
+            $('.rangeMaxInput').val(rangeMax)
+            $(".roiInput").val(roi)
+            $('.durationInput').val(duration)
+            var investmentAmount = $(".investmentAmount").val()
+
+
+
+            $('form').submit(function (e) {
+                    e.preventDefault()
+                    var wallet = $(".wallet").text()
+                    var investmentAmount = $(".investmentAmount").val()                    
+                    
+                       if (investmentAmount > parseFloat(wallet)) {
+                           console.log(plan);
+                           
+                        swal({
+                                title: "Insufficient fund!",
+                                text: `You do not have sufficient funds for this plan. Please fund your wallet.`,
+                                icon: "warning",
+                                buttons: "Ok",
+                            })
+                       } else if(investmentAmount < rangeMin ){
+                        swal({
+                                title: "Insufficient amount",
+                                text: `$${investmentAmount} is not up to the minimum for ${plan} plan.`,
+                                icon: "warning",
+                                buttons: "Ok",
+                            })
+                       }else if(investmentAmount > rangeMax ){
+                        swal({
+                                title: "Out Of Range",
+                                text: `$${investmentAmount} is more than the maximum amount for ${plan}. Please select a higher plan.`,
+                                icon: "warning",
+                                buttons: "Ok",
+                            })
+                       }else{
+
+                                function successful() {
+                                            swal({
+                                                    title: "Successful!",
+                                                    text: `You have successfully purchased ${plan} and invested $${investmentAmount}. Please reload your dashboard to update it.`,
+                                                    icon: "success",
+                                                    buttons: "Ok",
+                                            })
+                                        }
+                                $.post('/invest', {username, plan, roi, rangeMin, rangeMax, duration, investmentAmount}, successful()) 
+                                
+                                .fail(function(error) {
+                                    console.error('Error:', error);
+                                    swal({
+                                            title: "Error!",
+                                            text: `An error occured.`,
+                                            icon: "danger",
+                                            buttons: "Ok",
+                                    })
+                                });        
+                       }
+                })
+
+           })
+
+           $('form span').click(function () {
+            $('form').css({"opacity": "0", "z-index": "-10"})
+           })
+
+           //logic for routing fund wallet
+        
+        
+           $('.fundWallet').click(function () {
+                $.get('/fund-wallet', function(data) {
+                    // Open a new browser window and load the received HTML content
+                    var newWindow = window.open('', '_blank');
+                    newWindow.document.write(data);
+                    newWindow.document.close();
+                }).done(function() {
+                    // This block will run if the GET request is successful
+                    console.log('GET request succeeded');
+                    // Add your additional actions here
+                }).fail(function() {
+                    // This block will run if there's an error with the GET request
+                    console.error('GET request failed');
+                    // Add error handling code here
+                });
+            });
+
+        
+        
+        
+        
+           //    $('.fundWallet').click(function () {
+        //         console.log('ok');
+        //         $.get('/fund-wallet', function (data) {
+        //          console.log(data)   
+        //         })
+        //     });
+
+            
+        })
+   </script>
+</body>
+</html>

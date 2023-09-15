@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix - Login to Your Account</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/login.css'>
+    <script src="https://kit.fontawesome.com/37ab93e118.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="bootstrap-3.4.1-dist/css/bootstrap.min.css">
+   
+</head>
+<body>
+    <div class="background"></div>
+    <div class="overlay">
+        <div class="overlay-content"> 
+            <h2 style="color: #ebb462; font-size: 3.2rem;">Welcome back!</h2>
+            
+            <form action="/login" method="POST" class="form">
+           <img src="https://res.cloudinary.com/dbfue99qr/image/upload/v1694767455/phoenix/phoenix-uploads/logo1_daltoh.png" alt="">
+            
+            <p>Login to your account</p>
+    
+            <label for="username"></label>
+            <br>
+            <input type="text" name="username" placeholder="Username">
+            <br>
+
+            <label for="password"></label>
+            <br>
+            <input type="password" name="password" placeholder="Password">
+            <br>
+
+            <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <script src='js/app.js'></script>
+    <script src="js/jquery-3.6.3.js"></script>
+    <script src="bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           $('.form input').focus(function () {
+                $(this).css('transform', 'scale(0.8) translate(5px)')
+                $(this).css('transition', 'all 0.2s')
+                $(this).css('transform-origin', '0 0')
+                $(this).css('border-bottom', '1px solid white')
+           })
+
+           $('.form input').blur(function () {
+                $(this).css('transform', 'scale(1) translate(0)')
+                $(this).css('transition', 'all 0.2s')
+                $(this).css('transform-origin', '0 0')
+                $(this).css('border-bottom', '1px solid #e8a541')
+           })
+
+           $('.menu-logo-container').click(function () {
+               var menuOverlay = $('.menu-overlay')
+                menuOverlay.css('width', '0%')
+                $('.headerCont span').css('display', 'block')
+           })
+        })
+   </script>
+</body>
+</html>

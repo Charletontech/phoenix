@@ -1,0 +1,140 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.background{
+    width: 100%;
+    height: 100vh;
+    background: url(https://res.cloudinary.com/dbfue99qr/image/upload/v1694768902/phoenix/phoenix-uploads/crypto8_fwkaxg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    height: 100%;
+
+}
+
+.overlay-content{
+    width: 20rem;
+    height: 93%;
+    display: block;
+    margin: auto;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    margin-left: 50%;
+    transform: translate(-50%, 3%);
+    padding: .3rem;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.overlay-content img{
+    width: 10rem;
+    height: 10rem;
+    margin: auto;
+    display: block;
+}
+
+.form{
+    margin:1.6rem auto;
+    display: block;
+    width: 80%;
+    padding-left: 1rem;
+}
+
+.form h1{
+    color: #ebb462;
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: .8rem;
+}
+
+.form p{
+    color: white;
+    margin-bottom: .3rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+
+
+.form button{
+    border: none;
+    color: white;
+    background: rgb(218, 90, 43);
+    padding: .7rem;
+    width: 90%;
+    display: block;
+    margin: auto;
+    margin-top: .5rem;
+    border-radius: 30px;
+    font-size: 1em;
+    transform: scale(1);
+}
+
+.form button:hover{
+    transform: scale(1.1);
+}
+
+input[type="file"]::before{
+    content: none;
+}
+
+.badge{
+    font-weight: bold;
+    padding-top: .3rem;
+    border-radius: 50%;
+    background: rgb(218, 90, 43);
+    color: white;
+    text-align: center;
+    width: 1.7rem;
+    height: 1.7rem;
+    margin: auto;
+}
+
+.badge-container{
+    text-align: center;
+    margin-bottom: 1.2rem;
+}
+
+.badge-container b{
+    color: rgb(218, 90, 43);
+}
+
+
+/* FOR MOBILE */
+@media screen and (max-width: 600px){
+    .walletAddress{
+        margin-left: -2.8rem;
+    }
+}
+
+
+/* LOGIN PAGE STYLING FOR DESKTOP */
+@media screen and (min-width: 600px){
+    .overlay-content{
+        width: 25rem;
+        height: 75%;
+        transform: translate(-50%, 16%);
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 1000px){
+    .overlay-content{
+        width: 25rem;
+        height: 84%;
+        transform: translate(-50%, 10%);
+    }
+}
+/* LOGIN PAGE STYLING FOR DESKTOP ENDS*/
+  
