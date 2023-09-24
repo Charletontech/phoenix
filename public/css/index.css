@@ -650,9 +650,9 @@
     .fixedIcon{
       position: fixed;
       bottom: 3rem;
-      right: 2rem;
-      height: 5rem;
-      width: 5rem;
+      right: .8rem;
+      height: 3.8rem;
+      width: 3.8rem;
       z-index: 2;
       padding: 0;
     }
