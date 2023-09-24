@@ -647,7 +647,21 @@
       margin: 1rem;
     }
 
-   
+    .fixedIcon{
+      position: fixed;
+      bottom: 3rem;
+      right: 2rem;
+      height: 5rem;
+      width: 5rem;
+      z-index: 2;
+      padding: 0;
+    }
+    .fixedIcon img{
+      background: white;
+      border-radius: 50%;
+      height: 100%;
+      width: 100%;
+    }
     
     @media screen and (max-width: 600px){
       .menu-overlay{
@@ -751,7 +765,13 @@
       .plans-box-header{
         padding-top: 8rem;
       }
-  
+
+      .fixedIcon{
+        bottom: 5rem;
+        right: 5rem;
+        height: 6rem;
+        width: 6rem;
+      }
     }
 
     @media screen and (min-width: 600px){
