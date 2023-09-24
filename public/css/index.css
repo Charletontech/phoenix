@@ -10,7 +10,7 @@
     width:100%;
     margin:auto;
     position:relative;
-    background-image:url(files/img/crypto12.jpg);
+    background-image:url(https://res.cloudinary.com/dbfue99qr/image/upload/v1694786889/phoenix/vabqdhrwiyj6zgh8kjng.jpg);
     background-size:cover;
     background-position:center;
     background-color:rgba(0,0,0,0.5);
@@ -54,7 +54,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(to left, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.4));
+        background-image: linear-gradient(to left, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2));
         color: white;
         padding-left: .3rem;
     }
