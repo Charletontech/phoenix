@@ -15,7 +15,7 @@
                 <li>Home</li>
                 <li>Plans</li>
                 <li class="fundWallet">Fund Wallet</li>
-                <li>Withdraw</li>
+                <li class="withdrawal">Withdraw</li>
                 <li>Log Out</li>
              </ul> 
             <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -32,7 +32,7 @@
                     <li><span class="glyphicon glyphicon-home"></span>  Home</li>
                     <li><span class="glyphicon glyphicon-list"></span>  Plans</li>
                     <li class="fundWallet"><span class="glyphicon glyphicon-btc"></span>  Fund wallet</li>
-                    <li><span class="glyphicon glyphicon-download-alt"></span>  Withdraw</li>
+                    <li class="withdrawal"><span class="glyphicon glyphicon-download-alt"></span>  Withdraw</li>
                     <li><span class="glyphicon glyphicon-log-out"></span>  Log Out</li>
             </div>
             
@@ -382,7 +382,16 @@
         //         })
         //     });
 
-            
+            $('.withdrawal').click(function () {
+            swal({
+                text: "How much do you want to withdraw?",
+                content: "input",
+                button: 'Proceed'
+            })
+            .then(value => {
+                const whatsappLink = `https://wa.me/message/GTQ6F6HXAGNXL1?text=Withdrawal%20request%20for%20$${value}`;
+                window.open(whatsappLink, '_blank');
+        });
         })
    </script>
 </body>
