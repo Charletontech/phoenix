@@ -6,6 +6,10 @@
     list-style: none;
 }
 
+li span{
+  cursor: pointer;
+}
+
 .headerCont{
     height: 6rem;
     display: flex;
@@ -28,7 +32,7 @@
   font-weight: bold;
   border-bottom: 1px solid #f8e195;
   color: white;
-
+  cursor: pointer;
 }
 
 .headerCont span{
@@ -114,7 +118,62 @@
   padding-bottom: .7rem;
   border-bottom: 1px solid #f8e195;
   color: white;
+  cursor: pointer;
 }
+
+/* NEW CODE */
+.investmentMenu i{
+  text-align: right;
+  float: right;
+  clear: both;
+}
+
+
+/* Styles for the submenu */
+.investmentMenu .investment-submenu {
+  display: none; /* Initially hide the submenu */
+  position: relative;
+  list-style: none;
+  z-index: 2;
+  background: transparent;
+  margin: 0; /* Reset margin */
+  padding: 0; /* Remove default padding */
+  transition:  0.3s ease-out; /* Add a smooth transition effect */
+}
+
+/* Styles for individual submenu items */
+.investmentMenu .investment-submenu li {
+  padding: 4px 4px;
+  cursor: pointer;
+  border: none;
+  padding: 4px 2.2rem;
+  margin: 0;
+  background: transparent;
+  color: #f8e195;
+}
+
+.investmentMenu .investment-submenu li:hover{
+  color: white;
+}
+
+.investmentMenu:hover {
+  border-bottom: none;
+}
+
+
+/* Hide the submenu when the menu item is not hovered */
+.investmentMenu:not(:hover) {
+  border-bottom: 1px solid #f8e195;
+}
+.investmentMenu:not(:hover) .investment-submenu {
+  display: none;
+  
+}
+
+
+
+/* NEW CODE END*/
+
 
 .generalContainer{
     width: 100%;
@@ -453,6 +512,10 @@
   .form input:nth-child(5){
     display: none;
   }
+
+  
+
+
 
 @media screen and (min-width: 600px){
     .logo{
