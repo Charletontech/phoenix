@@ -12,11 +12,18 @@
         <div class="headerCont">
             <img src="https://res.cloudinary.com/dbfue99qr/image/upload/v1694767455/phoenix/phoenix-uploads/logo1_daltoh.png" alt="logo" class="logo">
             <ul >
-                <li>Home</li>
-                <li>Plans</li>
+                <li class="home">Home</li>
+                <li class="investmentMenu">Investments  <i class="glyphicon glyphicon-triangle-bottom" style="padding-top: 3px; padding-left: 8px;"></i>  
+                    <ul class="investment-submenu" style="background: #004570a1;">
+                        <% for (let i = 0; i < results2.length; i++) { %>
+                            <% const each = results2[i]; %>
+                            <li class="investment-submenu-item"><%= each.plan %></li>                            
+                        <%  } %>
+                    </ul>
+                </li>                  
                 <li class="fundWallet">Fund Wallet</li>
                 <li class="withdrawal">Withdraw</li>
-                <li>Log Out</li>
+                <li class="logout">Log Out</li>
              </ul> 
             <span class="glyphicon glyphicon-menu-hamburger"></span>
         </div>
@@ -29,18 +36,26 @@
                 </div>
                 
                 <ul >
-                    <li><span class="glyphicon glyphicon-home"></span>  Home</li>
-                    <li><span class="glyphicon glyphicon-list"></span>  Plans</li>
+                    <li class="home"><span class="glyphicon glyphicon-home"></span>  Home</li>
+                    <li><span class="glyphicon glyphicon-list"></span>  <a href="#plan" style="color: white;">Plans</a></li>
+                    <li class="investmentMenu"><span><span class="glyphicon glyphicon-piggy-bank"></span> Investments</span>  <i class="glyphicon glyphicon-triangle-bottom"></i>
+                        <ul class="investment-submenu">
+                            <% results2.forEach(each => { %>
+                                <li class="investment-submenu-item"><%= each.plan %></li>
+                            <% }); %>
+                        </ul>
+                    </li>
                     <li class="fundWallet"><span class="glyphicon glyphicon-btc"></span>  Fund wallet</li>
                     <li class="withdrawal"><span class="glyphicon glyphicon-download-alt"></span>  Withdraw</li>
-                    <li><span class="glyphicon glyphicon-log-out"></span>  Log Out</li>
+                    <li class="logout"><span class="glyphicon glyphicon-log-out"></span>  Log Out</li>
+                </ul>
             </div>
             
         </div>
 
 
         <div class="intro">
-            <h1>Hello, <span> <%= username %></span></h1>
+            <h1>Hello, <span><%= username %></span></h1>
             <p>Welcome back!</p>
         </div>
         <section class="info-area-cont container-fluid">
@@ -60,21 +75,21 @@
     
                             <div class="box-content">
                                 <p>Current Plan</p>
-                                <h4 style="font-size: 1.5rem;"><%= plan %></h4>
+                                <h4 class="currentPlan" style="font-size: 1.5rem;"><%= plan %></h4>
                             </div>
                         </div>
                         <div class="box col-6">
                             <span class="glyphicon glyphicon-check"></span>
                             <div class="box-content">
                                 <p>Amount Invested:</p>
-                                <h4>$<%= amount %></h4>
+                                <h4 class="amountInvested">$<%= amount %></h4>
                             </div>
                         </div>
                         <div class="box col-6">
                             <span class="glyphicon glyphicon-dashboard"></span>
                             <div class="box-content">
                                 <p>ROI</p>
-                                <h4>$<%= roi %></h4>
+                                <h4 class="roi">$<%= roi %></h4>
                             </div>
                         </div>
                     </div>
@@ -97,6 +112,7 @@
                         <div class="progress">
                             <div class="the-bar progress-bar progress-bar-success" role="progressbar" ></div>
                         </div>
+                        <p>Always check your email "inbox" or "Spam" folder for notifications.</p>
                     </div>
                 </div>
             </div>
@@ -254,7 +270,6 @@
 
 
            $('.headerCont span').click(function () {
-               console.log('hi')
                var menuOverlay = $('.menu-overlay')
                 menuOverlay.css('width', '70%')
                 $('.headerCont span').css('display', 'none')
@@ -267,11 +282,9 @@
            })
 
            //links for menu
-           $('ul li:nth-child(1)').click(function () {
-               console.log('ok');
-               
-              $.get('/') 
-           })
+        //    $('ul li:nth-child(1)').click(function () {               
+        //       $.get('/') 
+        //    })
            
 
            //select investment links
@@ -298,9 +311,7 @@
                     var wallet = $(".wallet").text()
                     var investmentAmount = $(".investmentAmount").val()                    
                     
-                       if (investmentAmount > parseFloat(wallet)) {
-                           console.log(plan);
-                           
+                       if (investmentAmount > parseFloat(wallet)) {                           
                         swal({
                                 title: "Insufficient fund!",
                                 text: `You do not have sufficient funds for this plan. Please fund your wallet.`,
@@ -371,27 +382,83 @@
                 });
             });
 
+            
         
-        
-        
-        
-           //    $('.fundWallet').click(function () {
-        //         console.log('ok');
-        //         $.get('/fund-wallet', function (data) {
-        //          console.log(data)   
-        //         })
-        //     });
 
-            $('.withdrawal').click(function () {
+        //NEW CODE
+        
+        //code for redirectiong to home page
+        $('.home').click(function () {
+           window.open('/')
+        })
+
+
+        //LOGIC FOR CHAT WITHDRAWAL
+        $('.withdrawal').click(function () {
             swal({
-                text: "How much do you want to withdraw?",
-                content: "input",
-                button: 'Proceed'
-            })
-            .then(value => {
-                const whatsappLink = `https://wa.me/message/GTQ6F6HXAGNXL1?text=Withdrawal%20request%20for%20$${value}`;
-                window.open(whatsappLink, '_blank');
+                        title: "Withdrawal",
+                        text: 'You will be redirected to chat an Admin on WhatsApp for withdrawal. (You cannot go back if you click "Proceed")',
+                        icon: "info",
+                        buttons: ["Cancel", "Proceed"],
+                        })
+                        .then((willDelete) => {
+                        if (willDelete) {
+                            swal({title: "Input amount", 
+                            icon: "info",
+                            text: `How much do you want to withdraw?`,
+                            content: 'input',
+                            button: 'Send'
+                            })
+                            .then(value => {
+                                const whatsappLink = `https://wa.me/+34637591614/?text=Withdrawal%20request%20for%20$${value}`;
+                                window.open(whatsappLink, '_blank');
+                            });
+                        }
+                        })
+            
         });
+
+            //Logic for dropdown menu
+            $(".investment-submenu").hide();
+  
+            // Toggle the submenu when clicking on the "Investments" menu item
+            $(".investmentMenu").click(function() {
+                $(".investment-submenu").slideToggle();
+                $(".glyphicon-triangle-bottom").toggleClass("glyphicon-triangle-top")
+            });
+            
+
+            //LOGIC FOR CHOOSING PLAN FROM ".investment-submenu-item"
+            $(".investment-submenu-item").click(function () {
+                var planName = $(this).text()
+                var username = $(".intro h1 span").text()
+                $.get('/switch-plan', {planName, username}, function (data) {
+                    console.log(data)
+                    var currentPlan = $(".currentPlan").text(data.plan)
+                    var amountInvested = $(".amountInvested").text(data.amount)
+                    var roi = $(".roi").text(data.roi)
+                    var dateInvested = $(".dateInvested").text(data.dateInvested)
+                    var dateDue = $(".dateDue").text(data.dateDue)
+
+                    $('.the-bar').css('width', `${data.progressBarData}%`)
+                }).fail(function (err) {
+                    console.error(err)
+                })            
+            })
+
+        $('.logout').click(function () {
+            $.get('/logout', function (data) {
+               console.log(data);
+               window.location.href = "/logout"
+            })
+        })
+
+        //NEW CODE END
+            // $('.withdrawal').click(function () {
+            //     $.get('/withdraw', function (data) {
+            //      console.log(data)   
+            //     })
+            // });
         })
    </script>
 </body>
