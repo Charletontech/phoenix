@@ -128,7 +128,7 @@ app.post('/signup-request', (req, res) =>{
   const hashedPassword = hash.digest('hex');
 
   const token = crypto.randomBytes(32).toString('hex') 
-  const uniqueLink = `https://phoenixdigitalcrest.org/verify-user?token=${token}&email=${email}&phone=${phone}&username=${username}&password=${hashedPassword}`
+  const uniqueLink = `https://phoenix-ie3c.onrender.com/verify-user?token=${token}&email=${email}&phone=${phone}&username=${username}&password=${hashedPassword}`
   
   //Sending the uniqueLink to the user email for verification
   const transporter = nodemailer.createTransport({
