@@ -69,12 +69,17 @@
         <div class="overlay-content">
             <img src="https://res.cloudinary.com/dbfue99qr/image/upload/v1694767455/phoenix/phoenix-uploads/logo1_daltoh.png" alt="">
             
-            <form action="/signup" method="POST" class="form">
+            <form action="/signup-request" method="POST" class="form">
             <h2>Sign Up</h2>
 
             <label for="email"></label>
             <br>
             <input type="email" name="email" placeholder="Email">
+            <br>
+
+            <label for="email"></label>
+            <br>
+            <input type="tel" name="phone" placeholder="phone">
             <br>
     
             <label for="username"></label>
@@ -112,11 +117,7 @@
                 $(this).css('border-bottom', '1px solid #e8a541')
            })
 
-           $('.menu-logo-container').click(function () {
-               var menuOverlay = $('.menu-overlay')
-                menuOverlay.css('width', '0%')
-                $('.headerCont span').css('display', 'block')
-           })
+
         })
    </script>
 
