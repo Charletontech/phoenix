@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+       <html lang="en">
+       <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Email Verification</title>
+         <style>
+           /* Reset styles for email clients */
+           body{
+               height: 100vh;
+           }
+           body, p {
+             margin: 0;
+             padding: 0;
+             font-family: Arial, sans-serif;
+           }
+       
+           /* Container */
+           .container {
+             background-color: black;
+             padding: 20px;
+             height: 100vh;
+           }
+       
+           /* Header */
+           .header {
+             background-color: #d7a917;
+             color: black;
+             text-align: center;
+             padding: 12px 15px; 
+           }
+       
+           /* Company Logo */
+           .logo {
+             text-align: center;
+             margin-bottom: 20px;
+             display: block;
+             margin: auto;
+           }
+       
+           /* Logo Image */
+           .logo img {
+             width: 100px; /* Adjust the size as needed */
+             height: 100px; /* Adjust the size as needed */
+             border-radius: 50%; /* Makes the logo round */
+           }
+       
+           /* Content */
+           .content {
+             background-color: black;
+             padding: 20px;
+             border-radius: 3px;
+             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+             color: #777;
+             line-height: 1.4rem; text-align: center;
+           }
+       
+           /* Button */
+           .button {
+             background-color: #d7a917;
+             color: black;
+             padding: 6px 12px;
+             text-decoration: none;
+             display: block;
+             border-radius: 5px;
+             text-align: center;
+             margin:1.1rem auto;
+             border: none;
+             font-size: 1rem;
+           }
+   
+           a {
+               text-decoration: none;
+           }
+ 
+           form{
+             text-align: center;
+           }
+ 
+           form h2{
+             color: white;
+           }
+ 
+           form input{
+             background: transparent;
+             border: none;
+             border-bottom: 1px solid #d7a917;
+             outline: none;
+             color: rgb(38, 145, 38);
+             text-align: center;
+             width: 5.4rem;
+             font-size: 1.2rem;
+             letter-spacing: 3px;
+           }
+ 
+           button{
+             background: #d7a917;
+             color: black;
+             border: 1px solid #d7a917;
+             margin-top: 2rem;
+             border-radius: 6px;
+             font-size: 1em;
+             padding: 6px 10px;
+           }
+       
+           /* Footer */
+           .footer {
+             text-align: center;
+             margin-top: 7rem;
+             color: #777;
+           }
+   
+           @media only screen and (min-width: 600px) and (max-width: 800px){
+               .header{
+                   width: 50%;
+               }
+           }
+   
+           @media screen and (min-width: 600px) {
+               .header{
+                   width: 40%;
+                   margin: auto;
+                   display: block;
+               }
+   
+               .button {
+                   width: 8rem;
+               }
+   
+               .footer {
+                   margin-top: 11rem;
+               }
+           }
+         </style>
+       </head>
+       <body>
+         <div class="container">
+             <div class="logo">
+               <img src="https://res.cloudinary.com/dbfue99qr/image/upload/v1694767455/phoenix/phoenix-uploads/logo1_daltoh.png" alt="Company Logo">
+             </div>
+           <div class="header">
+             
+             <h1>Verification Token Sent</h1>
+           </div>
+           <div class="content">
+             <p>A 6 digit verification token has been sent to your email. Please check your 'Inbox' or 'Spam' folder for the token and input it here.</p>
+             <form action="/verify-user" method="post" class="form">
+               <h2>Input 6 Digit Token:</h2>
+               <input type="text" name="token" maxlength="6" class="input">
+               <br>
+               <button type="submit">Done</button>
+             </form>
+           </div>
+           <div class="footer">
+             <p>&copy; 2023 Phoenix Digital Crest</p>
+           </div>
+         </div>
+       </body>
+       </html>
