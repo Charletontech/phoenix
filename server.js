@@ -120,6 +120,274 @@ app.get('/signup', (req, res) => {
 })
 
 //ROute for sign up form submission
+// app.post('/signup-request', (req, res) =>{
+//   var {email, phone, username} = req.body
+//   const password = req.body.password;
+//   const hash = crypto.createHash('sha256');
+//   hash.update(password);
+//   const hashedPassword = hash.digest('hex');
+
+//   const token = crypto.randomBytes(32).toString('hex') 
+//   const uniqueLink = `https://phoenix2.onrender.com/verify-user?token=${token}&email=${email}&phone=${phone}&username=${username}&password=${hashedPassword}`
+  
+//   //Sending the uniqueLink to the user email for verification
+//   const transporter = nodemailer.createTransport({
+//     host: 'smtp.elasticemail.com',
+//     port: 2525, // Make sure port is specified as a number (not a string)
+//     secure: false, // Set secure as a boolean
+//     auth: {
+//       user: 'phoenixdigitalcrest@mail.com',
+//       pass: '486D7B3214844781DDC0D377BBBDE2773968',
+//     },
+//   });
+
+
+//   //Mail details
+//   const mailContent = {
+//     from: 'phoenixdigitalcrest@mail.com',
+//     to: `${email}`,
+//     subject: 'no reply - Phoenix Email Verification',
+//     html: `<!DOCTYPE html>
+//     <html lang="en">
+//     <head>
+//       <meta charset="UTF-8">
+//       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//       <title>Email Verification</title>
+//       <style>
+//         /* Reset styles for email clients */
+//         body, p {
+//           margin: 0;
+//           padding: 0;
+//           font-family: Arial, sans-serif;
+//         }
+    
+//         /* Container */
+//         .container {
+//           background-color: black;
+//           padding: 20px;
+//         }
+    
+//         /* Header */
+//         .header {
+//           background-color: #d7a917;
+//           color: black;
+//           text-align: center;
+//           padding: 12px 15px; 
+//         }
+    
+//         /* Company Logo */
+//         .logo {
+//           text-align: center;
+//           margin-bottom: 20px;
+//           display: block;
+//           margin: auto;
+//         }
+    
+//         /* Logo Image */
+//         .logo img {
+//           width: 100px; /* Adjust the size as needed */
+//           height: 100px; /* Adjust the size as needed */
+//           border-radius: 50%; /* Makes the logo round */
+//         }
+    
+//         /* Content */
+//         .content {
+//           background-color: black;
+//           padding: 20px;
+//           border-radius: 3px;
+//           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+//           color: #777;
+//           line-height: 1.4rem; text-align: center;
+//         }
+    
+//         /* Button */
+//         .button {
+//           background-color: #d7a917;
+//           color: black;
+//           padding: 6px 12px;
+//           text-decoration: none;
+//           display: block;
+//           border-radius: 5px;
+//           text-align: center;
+//           margin:1.1rem auto;
+//           border: none;
+//           font-size: 1rem;
+//         }
+
+//         a {
+//             text-decoration: none;
+//         }
+    
+//         /* Footer */
+//         .footer {
+//           text-align: center;
+//           margin-top: 20px;
+//           color: #777;
+//         }
+//       </style>
+//     </head>
+//     <body>
+//       <div class="container">
+//           <div class="logo">
+//             <img src="https://res.cloudinary.com/dbfue99qr/image/upload/v1694767455/phoenix/phoenix-uploads/logo1_daltoh.png" alt="Company Logo">
+//           </div>
+//         <div class="header">
+          
+//           <h1>Email Verification</h1>
+//         </div>
+//         <div class="content">
+//           <p>Dear ${username}, we wanted to be sure its really you. You're good to go. Click the <b>"Verify"</b> button below to verify your email (or open this link in your browser: <a href="${uniqueLink}">${uniqueLink}</a>). You will then be redirected to login to your dashboard.</p>
+//           <button class="button"><a href="${uniqueLink}" style="color: black;">Verify</a></button>
+//         </div>
+//         <div class="footer">
+//           <p>&copy; 2023 Phoenix Digital Crest</p>
+//         </div>
+//       </div>
+//     </body>
+//     </html>
+    
+//     `
+//   }
+
+//   //Sending the mail
+//   transporter.sendMail(mailContent, (error, info) =>{
+//     if (error){
+//       console.error('error sending mail', error)
+//     }else{
+//       console.log('Email sent', info.response)
+//       res.send(`<!DOCTYPE html>
+//       <html lang="en">
+//       <head>
+//         <meta charset="UTF-8">
+//         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//         <title>Email Verification</title>
+//         <style>
+//           /* Reset styles for email clients */
+//           body{
+//               height: 100vh;
+//           }
+//           body, p {
+//             margin: 0;
+//             padding: 0;
+//             font-family: Arial, sans-serif;
+//           }
+      
+//           /* Container */
+//           .container {
+//             background-color: black;
+//             padding: 20px;
+//             height: 100vh;
+//           }
+      
+//           /* Header */
+//           .header {
+//             background-color: #d7a917;
+//             color: black;
+//             text-align: center;
+//             padding: 12px 15px; 
+//           }
+      
+//           /* Company Logo */
+//           .logo {
+//             text-align: center;
+//             margin-bottom: 20px;
+//             display: block;
+//             margin: auto;
+//           }
+      
+//           /* Logo Image */
+//           .logo img {
+//             width: 100px; /* Adjust the size as needed */
+//             height: 100px; /* Adjust the size as needed */
+//             border-radius: 50%; /* Makes the logo round */
+//           }
+      
+//           /* Content */
+//           .content {
+//             background-color: black;
+//             padding: 20px;
+//             border-radius: 3px;
+//             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+//             color: #777;
+//             line-height: 1.4rem; text-align: center;
+//           }
+      
+//           /* Button */
+//           .button {
+//             background-color: #d7a917;
+//             color: black;
+//             padding: 6px 12px;
+//             text-decoration: none;
+//             display: block;
+//             border-radius: 5px;
+//             text-align: center;
+//             margin:1.1rem auto;
+//             border: none;
+//             font-size: 1rem;
+//           }
+  
+//           a {
+//               text-decoration: none;
+//           }
+      
+//           /* Footer */
+//           .footer {
+//             text-align: center;
+//             margin-top: 7rem;
+//             color: #777;
+//           }
+  
+//           @media only screen and (min-width: 600px) and (max-width: 800px){
+//               .header{
+//                   width: 50%;
+//               }
+//           }
+  
+//           @media screen and (min-width: 600px) {
+//               .header{
+//                   width: 40%;
+//                   margin: auto;
+//                   display: block;
+//               }
+  
+//               .button {
+//                   width: 8rem;
+//               }
+  
+//               .footer {
+//                   margin-top: 11rem;
+//               }
+//           }
+//         </style>
+//       </head>
+//       <body>
+//         <div class="container">
+//             <div class="logo">
+//               <img src="https://res.cloudinary.com/dbfue99qr/image/upload/v1694767455/phoenix/phoenix-uploads/logo1_daltoh.png" alt="Company Logo">
+//             </div>
+//           <div class="header">
+            
+//             <h1>Verification Link Sent</h1>
+//           </div>
+//           <div class="content">
+//               <p>A verification link has been sent to your email.</p>
+//               <p>Please check your 'Inbox' or 'Spam' folder for the link.</p>
+              
+//             </div>
+//           <div class="footer">
+//             <p>&copy; 2023 Phoenix Digital Crest</p>
+//           </div>
+//         </div>
+//       </body>
+//       </html>  
+//       `)
+//     }
+//   })
+  
+// })
+
+
+
 app.post('/signup-request', (req, res) =>{
   var {email, phone, username} = req.body
   const password = req.body.password;
@@ -127,135 +395,40 @@ app.post('/signup-request', (req, res) =>{
   hash.update(password);
   const hashedPassword = hash.digest('hex');
 
-  const token = crypto.randomBytes(32).toString('hex') 
-  const uniqueLink = `https://phoenix2.onrender.com/verify-user?token=${token}&email=${email}&phone=${phone}&username=${username}&password=${hashedPassword}`
+  var sql = 'SELECT email, username FROM users'
+  connection.query(sql, (err, result) => {
+    const existingUsers = result.find((result) => {
+      return result.username === username ;
+    });
+    console.log(existingUsers);
+    
+    if (existingUsers) {
+      res.render('userExists')
+    } else { 
+      var min = 100000
+    var max = 999999
+    const token = Math.floor(Math.random() * (max - min + 1)) + min;
+    req.session.newUser = {username, phone, email, hashedPassword, token}
+    console.log(req.session.newUser.token);
+    
+    //Sending the uniqueLink to the user email for verification
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.elasticemail.com',
+      port: 2525, // Make sure port is specified as a number (not a string)
+      secure: false, // Set secure as a boolean
+      auth: {
+        user: 'phoenixdigitalcrest@mail.com',
+        pass: '486D7B3214844781DDC0D377BBBDE2773968',
+      },
+    });
   
-  //Sending the uniqueLink to the user email for verification
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.elasticemail.com',
-    port: 2525, // Make sure port is specified as a number (not a string)
-    secure: false, // Set secure as a boolean
-    auth: {
-      user: 'phoenixdigitalcrest@mail.com',
-      pass: '486D7B3214844781DDC0D377BBBDE2773968',
-    },
-  });
-
-
-  //Mail details
-  const mailContent = {
-    from: 'phoenixdigitalcrest@mail.com',
-    to: `${email}`,
-    subject: 'no reply - Phoenix Email Verification',
-    html: `<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Email Verification</title>
-      <style>
-        /* Reset styles for email clients */
-        body, p {
-          margin: 0;
-          padding: 0;
-          font-family: Arial, sans-serif;
-        }
-    
-        /* Container */
-        .container {
-          background-color: black;
-          padding: 20px;
-        }
-    
-        /* Header */
-        .header {
-          background-color: #d7a917;
-          color: black;
-          text-align: center;
-          padding: 12px 15px; 
-        }
-    
-        /* Company Logo */
-        .logo {
-          text-align: center;
-          margin-bottom: 20px;
-          display: block;
-          margin: auto;
-        }
-    
-        /* Logo Image */
-        .logo img {
-          width: 100px; /* Adjust the size as needed */
-          height: 100px; /* Adjust the size as needed */
-          border-radius: 50%; /* Makes the logo round */
-        }
-    
-        /* Content */
-        .content {
-          background-color: black;
-          padding: 20px;
-          border-radius: 3px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          color: #777;
-          line-height: 1.4rem; text-align: center;
-        }
-    
-        /* Button */
-        .button {
-          background-color: #d7a917;
-          color: black;
-          padding: 6px 12px;
-          text-decoration: none;
-          display: block;
-          border-radius: 5px;
-          text-align: center;
-          margin:1.1rem auto;
-          border: none;
-          font-size: 1rem;
-        }
-
-        a {
-            text-decoration: none;
-        }
-    
-        /* Footer */
-        .footer {
-          text-align: center;
-          margin-top: 20px;
-          color: #777;
-        }
-      </style>
-    </head>
-    <body>
-      <div class="container">
-          <div class="logo">
-            <img src="https://res.cloudinary.com/dbfue99qr/image/upload/v1694767455/phoenix/phoenix-uploads/logo1_daltoh.png" alt="Company Logo">
-          </div>
-        <div class="header">
-          
-          <h1>Email Verification</h1>
-        </div>
-        <div class="content">
-          <p>Dear ${username}, we wanted to be sure its really you. You're good to go. Click the <b>"Verify"</b> button below to verify your email (or open this link in your browser: <a href="${uniqueLink}">${uniqueLink}</a>). You will then be redirected to login to your dashboard.</p>
-          <button class="button"><a href="${uniqueLink}" style="color: black;">Verify</a></button>
-        </div>
-        <div class="footer">
-          <p>&copy; 2023 Phoenix Digital Crest</p>
-        </div>
-      </div>
-    </body>
-    </html>
-    
-    `
-  }
-
-  //Sending the mail
-  transporter.sendMail(mailContent, (error, info) =>{
-    if (error){
-      console.error('error sending mail', error)
-    }else{
-      console.log('Email sent', info.response)
-      res.send(`<!DOCTYPE html>
+  
+    //Mail details
+    const mailContent = {
+      from: 'phoenixdigitalcrest@mail.com',
+      to: `${email}`,
+      subject: 'no reply - Phoenix Email Verification',
+      html: `<!DOCTYPE html>
       <html lang="en">
       <head>
         <meta charset="UTF-8">
@@ -263,9 +436,6 @@ app.post('/signup-request', (req, res) =>{
         <title>Email Verification</title>
         <style>
           /* Reset styles for email clients */
-          body{
-              height: 100vh;
-          }
           body, p {
             margin: 0;
             padding: 0;
@@ -276,7 +446,6 @@ app.post('/signup-request', (req, res) =>{
           .container {
             background-color: black;
             padding: 20px;
-            height: 100vh;
           }
       
           /* Header */
@@ -312,51 +481,20 @@ app.post('/signup-request', (req, res) =>{
             line-height: 1.4rem; text-align: center;
           }
       
-          /* Button */
-          .button {
-            background-color: #d7a917;
-            color: black;
-            padding: 6px 12px;
-            text-decoration: none;
-            display: block;
-            border-radius: 5px;
-            text-align: center;
-            margin:1.1rem auto;
-            border: none;
-            font-size: 1rem;
+          h3{
+            color: white;
           }
   
-          a {
-              text-decoration: none;
+          .token{
+            color: rgb(38, 145, 38);
+            letter-spacing: 3px;
           }
       
           /* Footer */
           .footer {
             text-align: center;
-            margin-top: 7rem;
+            margin-top: 20px;
             color: #777;
-          }
-  
-          @media only screen and (min-width: 600px) and (max-width: 800px){
-              .header{
-                  width: 50%;
-              }
-          }
-  
-          @media screen and (min-width: 600px) {
-              .header{
-                  width: 40%;
-                  margin: auto;
-                  display: block;
-              }
-  
-              .button {
-                  width: 8rem;
-              }
-  
-              .footer {
-                  margin-top: 11rem;
-              }
           }
         </style>
       </head>
@@ -367,52 +505,94 @@ app.post('/signup-request', (req, res) =>{
             </div>
           <div class="header">
             
-            <h1>Verification Link Sent</h1>
+            <h1>Email Verification</h1>
           </div>
           <div class="content">
-              <p>A verification link has been sent to your email.</p>
-              <p>Please check your 'Inbox' or 'Spam' folder for the link.</p>
-              
-            </div>
+            <p>Dear ${username}, we wanted to be sure its really you. You're good to go. 
+              After You have provided the 6 digit token you will be redirected to login to your dashboard.
+              <br>
+              <b>Note:</b> login with the information you have provided in the sign up page.</p>
+              <h3>6 Digit Token:</h3>
+              <h1 class="token">${req.session.newUser.token}</h1>
+          </div>
           <div class="footer">
             <p>&copy; 2023 Phoenix Digital Crest</p>
           </div>
         </div>
       </body>
-      </html>  
-      `)
-    }
+      </html>
+      
+       `
+     }
+  
+    //Sending the mail
+    transporter.sendMail(mailContent, (error, info) =>{
+      if (error){
+        console.error('error sending mail', error)
+      }else{
+        console.log('Email sent', info.response)
+         res.render('emailSentNotification')
+       }
+    })
+     }
+  
   })
+  
+  
   
 })
 
 
-
 // Route  for handling email verification requests from the user's email
-app.get('/verify-user', (req, res) => {  
-    //Insert the customer into the database
+// app.get('/verify-user', (req, res) => {  
+//     //Insert the customer into the database
+//     const sql = `INSERT INTO users (username, wallet, email, phone, password) VALUES (?, ?, ?, ?, ?)`;
+//     var initialAmount = 0;
+//     const values = [req.query.username, initialAmount, req.query.email, req.query.phone, req.query.password];
+//     connection.query(sql, values, (err, result) => {
+//       if (err) {
+//         console.log(err);
+//         return;
+//       }
+//       var investmentSql = 'INSERT INTO investment_table (plan, amount, duration, roi, dateInvested, dateDue, username, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ';
+//       connection.query(investmentSql, ["No Active Plan", 0, 0, 0, "00/00", "00/00", req.query.username, "pending"], (err, investmentResults) => {
+//         if (err) {
+//           console.error(err);
+//           res.status(500).send('Error inserting investment data');
+//         } 
+//       });
+//       res.redirect('/login')
+//     });
+
+//  });
+
+
+
+
+app.post('/verify-user', (req, res) => {  
+  if (parseFloat(req.body.token) === req.session.newUser.token) {
     const sql = `INSERT INTO users (username, wallet, email, phone, password) VALUES (?, ?, ?, ?, ?)`;
     var initialAmount = 0;
-    const values = [req.query.username, initialAmount, req.query.email, req.query.phone, req.query.password];
+    const values = [req.session.newUser.username, initialAmount, req.session.newUser.email, req.session.newUser.phone, req.session.newUser.hashedPassword];
     connection.query(sql, values, (err, result) => {
       if (err) {
         console.log(err);
         return;
       }
       var investmentSql = 'INSERT INTO investment_table (plan, amount, duration, roi, dateInvested, dateDue, username, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ';
-      connection.query(investmentSql, ["No Active Plan", 0, 0, 0, "00/00", "00/00", req.query.username, "pending"], (err, investmentResults) => {
+      connection.query(investmentSql, ["No Active Plan", 0, 0, 0, "00/00", "00/00", req.session.newUser.username, "pending"], (err, investmentResults) => {
         if (err) {
           console.error(err);
           res.status(500).send('Error inserting investment data');
         } 
       });
       res.redirect('/login')
-    });
-
- });
-
-
-
+   });
+  } else {
+    res.render('wrongToken')
+  }
+  
+})
 
 
 
@@ -445,13 +625,11 @@ app.get('/verify-user', (req, res) => {
           req.session.save()
           res.redirect('/admin')
         }else{
-          res.send('<p style="font-size: 1.4rem"><b>Incorrect credentials:</b> password or username not found!</p>')
+          res.render('badCredentials')
          }
       } 
     })
   });
-
-  
 
 
 app.get('/dashboard', (req, res) => {
@@ -464,6 +642,18 @@ app.get('/dashboard', (req, res) => {
     var email = result[0].email
     connection.query(`SELECT * FROM investment_table WHERE username = '${username}' AND status = "pending" `, (err, results) => {
       if (err) throw err;
+
+      if (results == "") {
+        var plan = 'No Active Plan'
+        var amount = 0
+        var roi = 0
+        var dateInvested = '00/00'
+        var dateDue = '00/00'
+        var progressBarData = 0
+        var results2 = [{plan: "No Active Plan"}]
+        res.render('dashboard', {username, wallet, plan, amount, roi, dateInvested, dateDue, progressBarData, results2})
+      } else {
+        
       var plan = results[0].plan
       var amount = results[0].amount
       var roi = results[0].roi
@@ -706,9 +896,268 @@ app.get('/dashboard', (req, res) => {
         if (err) throw err;
          res.render('dashboard', {username, wallet, plan, amount, roi, duration, dateInvested, dateDue, progressBarData, results2})
       })
+     }
     })
   })
 })
+
+
+
+// app.get('/dashboard', (req, res) => {
+//   //getting user info from sesion storage
+//   // const profile = req.session.user;
+//   var username = req.session.user.username;
+//   connection.query(`SELECT * FROM users WHERE username = '${username}'`, (err, result) => {
+//     if (err) throw err;
+//     var wallet = result[0].wallet
+//     var email = result[0].email
+//     connection.query(`SELECT * FROM investment_table WHERE username = '${username}' AND status = "pending" `, (err, results) => {
+//       if (err) throw err;
+//       var plan = results[0].plan
+//       var amount = results[0].amount
+//       var roi = results[0].roi
+//       var duration = results[0].duration
+//       var dateInvested = results[0].dateInvested
+//       var dateDue = results[0].dateDue
+
+//       var currentDate = new Date();     
+//       var investedDateParts = dateInvested.split(' ');
+//       var investedDate = new Date(`${investedDateParts[1]} ${investedDateParts[0]}, ${new Date().getFullYear()}`);
+//       var timeDifference = currentDate - investedDate; 
+      // var daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+      // var progressBarData = Math.round(daysDifference / duration * 100)
+      // if (progressBarData > 100) {
+      //   progressBarData = 100
+      // }
+      
+      // //test
+      // for (let i = 0; i < results.length; i++) {
+      //   var each = results[i];
+      //   var id = each.id
+      //   var amountEach = each.amount
+      //   var roiEach = each.roi
+      //   var durationEach = each.duration
+      //   var planEach = each.plan
+      //  // Sample date format like "27 September"
+      //   const dateInvestedEach = each.dateInvested;
+
+      //   // Convert the date string to a valid date object
+      //   const investedDateParts = dateInvestedEach.split(' ');
+
+        // const investedDate = new Date(`${investedDateParts[1]} ${investedDateParts[0]}, ${new Date().getFullYear()}`);
+
+        // // Calculate the time difference in milliseconds between the invested date and the current date
+        // const currentDate = new Date();
+        // const timeDifference = currentDate - investedDate;
+
+        // // Calculate the number of days by dividing the time difference by the number of milliseconds in a day
+        // const daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+
+        
+        //  if (daysDifference >= durationEach) {
+        //     //crediting the user
+        //     var profit = parseFloat(roiEach) - parseFloat(amountEach)
+        //     var newBalance = parseFloat(wallet) + profit
+
+        //     var sql = `UPDATE users SET wallet ='${newBalance}' where username = '${username}'`
+        //     connection.query(sql, (err, result3) => {
+        //       if (err) {
+        //         console.error(err);
+        //         res.status(500).send('Error UPDATING completed investment status');
+        //         return;
+            //   }
+            // })
+            // var sql = ` UPDATE investment_table SET status = 'completed' WHERE id = '${id}'`
+            // connection.query(sql, (err, result4) => {
+            //   if (err) {
+            //     console.error(err);
+            //     res.status(500).send('Error UPDATING completed investment status');
+            //     return;
+            //   }
+            // })
+            
+            // //Sending an email notification to the user
+            // const nodemailer = require('nodemailer');
+
+            // const transporter = nodemailer.createTransport({
+            //   host: 'smtp.elasticemail.com',
+            //   port: 2525, // Make sure port is specified as a number (not a string)
+            //   secure: false, // Set secure as a boolean
+            //   auth: {
+            //     user: 'phoenixdigitalcrest@mail.com',
+            //     pass: '486D7B3214844781DDC0D377BBBDE2773968',
+            //   },
+            // });
+
+          
+            // //Mail details
+            // const mailContent = {
+            //   from: 'phoenixdigitalcrest@mail.com',
+            //   to: `${email}`,
+            //   subject: 'Credit alert!',
+            //   html:`<!DOCTYPE html>
+            //   <html lang="en">
+            //   <head>
+            //     <meta charset="UTF-8">
+            //     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            //     <title>Email Verification</title>
+            //     <style>
+            //       /* Reset styles for email clients */
+                  // *{
+                  //   list-style: none;
+                  // }
+                  // body{
+                  //     height: 100vh;
+                  // }
+                  // body, p {
+                  //   margin: 0;
+                  //   padding: 0;
+                  //   font-family: Arial, sans-serif;
+                  // }
+              
+                  // /* Container */
+                  // .container {
+                  //   background-color: black;
+                  //   padding: 20px;
+                  //   height: 100vh;
+                  //   overflow: scroll;
+                  // }
+              
+                  // /* Header */
+                  // .header {
+                  //   background-color: #d7a917;
+                  //   color: black;
+                  //   text-align: center;
+                  //   padding: 12px 15px; 
+                  // }
+              
+                  // /* Company Logo */
+                  // .logo {
+                  //   text-align: center;
+                  //   margin-bottom: 20px;
+                  //   display: block;
+                  //   margin: auto;
+                  // }
+              
+                  // /* Logo Image */
+                  // .logo img {
+                  //   width: 100px; /* Adjust the size as needed */
+                  //   height: 100px; /* Adjust the size as needed */
+                  //   border-radius: 50%; /* Makes the logo round */
+                  // }
+              
+                  // /* Content */
+                  // .content {
+                  //   background-color: black;
+                  //   padding: 20px;
+                  //   border-radius: 3px;
+                  //   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                  //   color: #777;
+                  //   line-height: 1.4rem; 
+                  //   text-align: left;
+                  //   width: 100%;
+                  // }
+                  // b{
+                  //   color: white;
+                    
+                  // }
+          
+                  // h3{
+                  //   margin-top: 1.1rem;
+                  //   margin-bottom: -.7rem;
+                  // }
+                  // h3  b{
+                  //   color: #d7a917;
+                    
+                  // }
+          
+                  // ul{
+                  //   margin-left: -2.6rem;
+                  // }
+                  
+          
+                  // a {
+                  //     text-decoration: none;
+                  // }
+              
+                  // /* Footer */
+                  // .footer {
+                  //   text-align: center;
+                  //   margin-top: 7rem;
+                  //   color: #777;
+                  // }
+          
+                  // @media only screen and (min-width: 600px) and (max-width: 800px){
+                  //     .header{
+                  //         width: 50%;
+                  //     }
+                  // }
+          
+                  // @media screen and (min-width: 600px) {
+                //       .header{
+                //           width: 40%;
+                //           margin: auto;
+                //           display: block;
+                //       }
+          
+                //       .button {
+                //           width: 8rem;
+                //       }
+          
+                //       .footer {
+                //           margin-top: 11rem;
+                //       }
+                //   }
+                // </style>
+              // </head>
+              // <body>
+              //   <div class="container">
+              //       <div class="logo">
+              //         <img src="https://res.cloudinary.com/dbfue99qr/image/upload/v1694767455/phoenix/phoenix-uploads/logo1_daltoh.png" alt="Company Logo">
+              //       </div>
+              //     <div class="header">
+                    
+              //       <h1>Investment Complete!</h1>
+              //     </div>
+              //     <div class="content">
+              //         <p>Your investment is mature and you have been credited.</p>
+              //         <h3><b>Details</b></h3>
+              //         <ul>
+              //           <li><b>Plan: </b>${planEach}</li>
+              //           <li><b>Date Of Investment: </b>${dateInvestedEach}</li>
+              //           <li><b>Amount Invested: </b>$${amountEach}</li>
+              //           <li><b>Profit: </b>$${profit}</li>
+              //         </ul>
+              //       </div>
+              //     <div class="footer">
+          //           <p>&copy; 2023 Phoenix Digital Crest</p>
+          //         </div>
+          //       </div>
+          //     </body>
+          //     </html> 
+          //     `
+          //   }
+
+          //   transporter.sendMail(mailContent, (error, info) =>{
+          //     if (error){
+          //       console.error('error sending mail', error)
+          //     }else{
+          //       console.log('mail sent', info.response);
+                
+          //     }
+          //   })
+            
+          // } 
+
+//       }
+//       var sql = `SELECT plan FROM investment_table WHERE username = '${username}' AND status = "pending"`
+//       connection.query(sql, (err, results2) => {
+//         if (err) throw err;
+//          res.render('dashboard', {username, wallet, plan, amount, roi, duration, dateInvested, dateDue, progressBarData, results2})
+//       })
+//     })
+//   })
+// })
 
 
 
