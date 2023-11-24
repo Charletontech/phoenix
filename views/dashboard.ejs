@@ -89,7 +89,7 @@
                             <span class="glyphicon glyphicon-dashboard"></span>
                             <div class="box-content">
                                 <p>ROI</p>
-                                <h4 class="roi">$<%= roi %></h4>
+                                <h4 class="roi" id="roi">$<%= roi %></h4>
                             </div>
                         </div>
                     </div>
@@ -421,7 +421,7 @@
                     console.log(data)
                     var currentPlan = $(".currentPlan").text(data.plan)
                     var amountInvested = $(".amountInvested").text(data.amount)
-                    var roi = $(".roi").text(data.roi)
+                    var roi = $("#roi").text(data.roi)
                     var dateInvested = $(".dateInvested").text(data.dateInvested)
                     var dateDue = $(".dateDue").text(data.dateDue)
 
