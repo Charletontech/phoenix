@@ -363,23 +363,8 @@
            })
 
            //logic for routing fund wallet
-        
-        
-           $('.fundWallet').click(function () {
-                $.get('/fund-wallet', function(data) {
-                    // Open a new browser window and load the received HTML content
-                    var newWindow = window.open('', '_blank');
-                    newWindow.document.write(data);
-                    newWindow.document.close();
-                }).done(function() {
-                    // This block will run if the GET request is successful
-                    console.log('GET request succeeded');
-                    // Add your additional actions here
-                }).fail(function() {
-                    // This block will run if there's an error with the GET request
-                    console.error('GET request failed');
-                    // Add error handling code here
-                });
+            $(".fundWallet").click(function () {
+                window.location.href = '/fund-wallet';
             });
 
             
@@ -446,11 +431,8 @@
                 })            
             })
 
-        $('.logout').click(function () {
-            $.get('/logout', function (data) {
-               console.log(data);
-               window.location.href = "/logout"
-            })
+       $('.logout').click(function () {
+            window.location.href = "/logout"
         })
 
         //NEW CODE END
