@@ -72,20 +72,7 @@
     });
         //Logic to go to next page
         $("button").click(function () {
-            $.get('/fund-wallet-step2', function(data) {
-            // Open a new browser window and load the received HTML content
-            var newWindow = window.open('', '_blank');
-            newWindow.document.write(data);
-            newWindow.document.close();
-            }).done(function() {
-            // This block will run if the GET request is successful
-            console.log('GET request succeeded');
-            // Add your additional actions here
-            }).fail(function() {
-            // This block will run if there's an error with the GET request
-            console.error('GET request failed');
-            // Add error handling code here
-            });
+            window.location.href = '/fund-wallet-step2'
         })
     });
    </script>
