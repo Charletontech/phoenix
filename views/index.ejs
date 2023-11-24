@@ -483,39 +483,19 @@
         $(document).ready(function(){
            // Add a click event handler to the "Login" <li> element
             $(".loginButton").click(function () {
-                $.get('/login', function(data) {
-            // Open a new browser window and load the received HTML content
-            var newWindow = window.open('', '_blank');
-            newWindow.document.write(data);
-            newWindow.document.close();
-            }).done(function() {
-            // This block will run if the GET request is successful
-            console.log('GET request succeeded');
-            // Add your additional actions here
-            }).fail(function() {
-            // This block will run if there's an error with the GET request
-            console.error('GET request failed');
-            // Add error handling code here
+                // Redirect the current page to the sign-up URL
+                window.location.href = '/login';
             });
-            });
+            $("#loginButton").click(function () {
+                    // Redirect the current page to the sign-up URL
+                    window.location.href = '/login';
+                });
 
 
             // Add a click event handler to the "signup" <li> element
-                $(".signupButton").click(function () {
-                $.get('/signup', function(data) {
-            // Open a new browser window and load the received HTML content
-            var newWindow = window.open('', '_blank');
-            newWindow.document.write(data);
-            newWindow.document.close();
-            }).done(function() {
-            // This block will run if the GET request is successful
-            console.log('GET request succeeded');
-            // Add your additional actions here
-            }).fail(function() {
-            // This block will run if there's an error with the GET request
-            console.error('GET request failed');
-            // Add error handling code here
-            });
+               $(".signupButton").click(function () {
+                // Redirect the current page to the sign-up URL
+                window.location.href = '/signup';
             });
 
 
