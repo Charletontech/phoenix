@@ -698,7 +698,7 @@ app.get('/dashboard', (req, res) => {
          if (daysDifference >= durationEach) {
             //crediting the user
             var profit = parseFloat(roiEach) - parseFloat(amountEach)
-            var newBalance = parseFloat(wallet) + profit
+            var newBalance = parseFloat(wallet) + roiEach
 
             var sql = `UPDATE users SET wallet ='${newBalance}' where username = '${username}'`
             connection.query(sql, (err, result3) => {
